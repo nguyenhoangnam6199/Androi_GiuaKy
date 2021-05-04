@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#BEE690"
+    android:orientation="vertical"
+    tools:context=".ThongTinActivity">
+
+    <LinearLayout
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:text="1."
+            android:textSize="25sp"
+            android:textColor="#000"
+            android:gravity="center"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="2.5"
+            android:text="Nguyễn Hoàng Nam"
+            android:textSize="25sp"
+            android:textColor="#000"
+            android:gravity="left"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:text="2."
+            android:textSize="25sp"
+            android:textColor="#000"
+            android:gravity="center"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="2.5"
+            android:text="Dương Tấn Phát"
+            android:textSize="25sp"
+            android:textColor="#000"
+            android:gravity="left"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:text="3."
+            android:textSize="25sp"
+            android:textColor="#000"
+            android:gravity="center"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="2.5"
+            android:text="Trần Hoài Nam"
+            android:textSize="25sp"
+            android:textColor="#000"
+            android:gravity="left"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:text="4."
+            android:textSize="25sp"
+            android:textColor="#000"
+            android:gravity="center"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="2.5"
+            android:text="Võ Trọng Minh"
+            android:textSize="25sp"
+            android:textColor="#000"
+            android:gravity="left"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <Button
+            android:id="@+id/btnThoat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="THOÁT"
+            android:textSize="25sp"
+            />
+    </LinearLayout>
+</LinearLayout>

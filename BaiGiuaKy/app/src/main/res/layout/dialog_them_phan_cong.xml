@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <TextView
+        android:id="@+id/tvTieuDe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="THÊM PHÂN CÔNG"
+        android:textSize="25sp"
+        android:textColor="#D31C1C"
+        android:textStyle="bold"
+        android:gravity="center"
+        />
+    <TextView
+        android:id="@+id/tvTenChuyen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tên Chuyến: "
+        android:textSize="25sp"
+        />
+    <Spinner
+        android:id="@+id/spnChuyen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"/>
+    <TextView
+        android:id="@+id/tvTenXe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tên Xe: "
+        android:textSize="25sp"
+        />
+    <Spinner
+        android:id="@+id/spnXe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"/>
+    <TextView
+        android:id="@+id/tvTaiXe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tên Tài Xế: "
+        android:textSize="25sp"
+        />
+    <Spinner
+        android:id="@+id/spnTaiXe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"/>
+
+    <EditText
+        android:id="@+id/edtBD"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Thời gian bắt đầu"
+        android:inputType="date" />
+
+    <EditText
+        android:id="@+id/edtKT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Thời gian kết thúc"
+        android:inputType="date" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="15dp"
+        android:weightSum="2"
+        >
+        <Button
+            android:id="@+id/btnLuu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:text="Lưu"
+            />
+        <Button
+            android:id="@+id/btnHuy"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:text="Hủy"
+            />
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#C3D8AA"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="NHÓM 13"
+        android:textSize="40sp"
+        android:textColor="#DA4141"
+        android:gravity="center"
+        />
+   <TextView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="Quản Lý Vận Tải"
+       android:textSize="40sp"
+       android:textColor="#DA4141"
+       android:gravity="center"
+       />
+
+    <LinearLayout
+        android:layout_marginTop="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        >
+        <Button
+            android:id="@+id/btnXe"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Quản Lý Xe"
+            android:layout_margin="20dp"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btnPhanCong"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Phân Công"
+            android:layout_margin="20dp"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        >
+        <Button
+            android:id="@+id/btnChuyen"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Quản Lý Chuyến"
+            android:layout_margin="20dp"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btnTaiXe"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_margin="20dp"
+            android:text="Quản Lý Tài Xế"
+
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <Button
+            android:id="@+id/btnThongTin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="THÔNG TIN NHÓM"
+            android:textSize="15sp"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

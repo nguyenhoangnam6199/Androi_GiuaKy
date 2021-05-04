@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">BaiGiuaKy</string>
+    <array name="DiaDiem">
+        <item>Sài Gòn</item>
+        <item>Hà Nội</item>
+        <item>Nha Trang</item>
+        <item>Đà Nẵng</item>
+        <item>Huế</item>
+        <item>Cà Mau</item>
+        <item>Ninh Thuận</item>
+        <item>Bến Tre</item>
+        <item>Hải Phòng</item>
+        <item>Sapa</item>
+    </array>
+</resources>

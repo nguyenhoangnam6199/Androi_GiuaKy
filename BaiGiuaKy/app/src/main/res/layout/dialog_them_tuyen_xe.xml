@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:orientation="vertical"
+    >
+    <TextView
+        android:id="@+id/tvTieuDe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="THÊM MỚI TUYẾN XE"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="#EC0F0F"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Từ: "
+        android:textSize="20sp"
+        android:textColor="#000"
+        />
+    <Spinner
+        android:id="@+id/spnDiemBD"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/DiaDiem"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đến: "
+        android:textSize="20sp"
+        android:textColor="#000"
+        />
+    <Spinner
+        android:id="@+id/spnDiemKT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/DiaDiem"
+        />
+
+    <EditText
+        android:id="@+id/edtGia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Giá"
+        android:inputType="number"
+        android:textColor="#000"
+        android:textSize="20sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="15dp"
+        android:weightSum="2"
+        >
+        <Button
+            android:id="@+id/btnLuu1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:text="Lưu"
+            />
+        <Button
+            android:id="@+id/btnHuy1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:text="Hủy"
+            />
+
+    </LinearLayout>
+</LinearLayout>
