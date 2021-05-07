@@ -70,25 +70,36 @@
             android:layout_weight="1"
             android:layout_margin="20dp"
             android:text="Quản Lý Tài Xế"
-
             android:layout_height="wrap_content"/>
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_margin="20dp"
+        android:layout_marginTop="20sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:weightSum="2"
         >
         <Button
+            android:id="@+id/btnThongKe"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_margin="20dp"
+            android:text="Tần Suất Hoạt Động"
+            android:layout_height="wrap_content"/>
+        <Button
             android:id="@+id/btnThongTin"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_margin="20dp"
             android:layout_height="wrap_content"
             android:text="THÔNG TIN NHÓM"
             android:textSize="15sp"
             />
 
     </LinearLayout>
+
+
 
 </LinearLayout>

@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     ConnectDB connectDB;
-    Button btnXe, btnTaiXe, btnChuyen, btnPhanCong, btnThongTin;
+    Button btnXe, btnTaiXe, btnChuyen, btnPhanCong, btnThongTin, btnThongKe;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,6 +77,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        btnThongKe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,ThongKeActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -99,5 +106,6 @@ public class MainActivity extends AppCompatActivity {
         btnPhanCong = findViewById(R.id.btnPhanCong);
         btnTaiXe = findViewById(R.id.btnTaiXe);
         btnThongTin = findViewById(R.id.btnThongTin);
+        btnThongKe = findViewById(R.id.btnThongKe);
     }
 }

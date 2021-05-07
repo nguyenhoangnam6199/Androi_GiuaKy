@@ -170,6 +170,20 @@ public class PhanCongActivity extends AppCompatActivity {
         spnTuyen.setEnabled(false);
         spnXe.setEnabled(false);
 
+        spnXe.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                XeItem clickedItem = (XeItem) parent.getItemAtPosition(position);
+                tenxe = clickedItem.getTenXe();
+                // Toast.makeText(PhanCongActivity.this,tenxe,Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         btnLuu = dialog.findViewById(R.id.btnLuu);
         btnHuy = dialog.findViewById(R.id.btnHuy);
         btnHuy.setOnClickListener(new View.OnClickListener() {
@@ -182,7 +196,7 @@ public class PhanCongActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String tenchuyen = spnTuyen.getSelectedItem().toString();
-                String tenxe = spnXe.getSelectedItem().toString();
+                //String tenxe = spnXe.getSelectedItem().toString();
                 String tentx = spnTaiXe.getSelectedItem().toString();
 
                 String[] a = tenchuyen.split(" -> ");
