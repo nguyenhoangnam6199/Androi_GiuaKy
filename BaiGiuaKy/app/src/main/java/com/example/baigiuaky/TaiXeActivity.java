@@ -7,6 +7,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -63,6 +64,7 @@ public class TaiXeActivity extends AppCompatActivity {
         btnThoat1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btnThoat1.setBackgroundColor(Color.RED);
                 //Hàm hiển thị dialog để thoát
                 Intent i = new Intent(TaiXeActivity.this,MainActivity.class);
                 startActivity(i);

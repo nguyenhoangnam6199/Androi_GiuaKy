@@ -118,27 +118,19 @@ public class TuyenXeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String bd = spnDiemBD.getSelectedItem().toString();
                 String kt = spnDiemKT.getSelectedItem().toString();
-                //float gia = Float.parseFloat(edtGia.getText().toString());
                 if(edtGia.getText().toString().isEmpty()){
                     edtGia.setError("Giá không được để trống !");
                     return;
                 }
-                /*else if(gia<0){
-                    edtGia.setError("Giá phải dương !");
-                    return;
-                }*/
                 else if(KtTuyenDaTonTai(bd,kt)){
                     Toast.makeText(TuyenXeActivity.this,"Tên Tuyến đã tồn tại !",Toast.LENGTH_SHORT).show();
                     return;
                 }
                 else if(bd.equalsIgnoreCase(kt)){
                    Toast.makeText(TuyenXeActivity.this,"Điểm BD Không được trùng Điểm KT !",Toast.LENGTH_SHORT).show();
-//                    ((TextView)spnDiemBD.getSelectedView()).setError("Không được trùng nhau !");
-//                    ((TextView)spnDiemKT.getSelectedView()).setError("Không được trùng nhau !");
                     return;
                 }
                 else{
-                    //connectDB.QueryData("INSERT INTO TuyenXe VALUES(null,'"+bd+"','"+kt+"',"+gia+")");
                     connectDB.QueryData("INSERT INTO TuyenXe VALUES(null,'"+bd+"','"+kt+"',"+edtGia.getText().toString()+")");
                     GetData();
                     Toast.makeText(TuyenXeActivity.this,"Thêm thành công !",Toast.LENGTH_SHORT).show();
@@ -186,18 +178,12 @@ public class TuyenXeActivity extends AppCompatActivity {
                     edtGia.setError("Giá không được để trống !");
                     return;
                 }
-                /*else if(gia<0){
-                    edtGia.setError("Giá phải dương !");
-                    return;
-                }*/
-                else if(KtTuyenDaTonTai(bdmoi,ktmoi)){
+                else if((!bdmoi.equalsIgnoreCase(diembd) || !ktmoi.equalsIgnoreCase(diemkt))&& KtTuyenDaTonTai(bdmoi,ktmoi)){
                     Toast.makeText(TuyenXeActivity.this,"Tên Tuyến đã tồn tại !",Toast.LENGTH_SHORT).show();
                     return;
                 }
                 else if(bdmoi.equalsIgnoreCase(ktmoi)){
                     Toast.makeText(TuyenXeActivity.this,"Điểm BD Không được trùng Điểm KT !",Toast.LENGTH_SHORT).show();
-//                    ((TextView)spnDiemBD.getSelectedView()).setError("Không được trùng nhau !");
-//                    ((TextView)spnDiemKT.getSelectedView()).setError("Không được trùng nhau !");
                     return;
                 }
                 else{

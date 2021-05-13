@@ -127,6 +127,8 @@ public class PhanCongActivity extends AppCompatActivity {
         }
         return kt;
     }
+
+    //mã xe ở đây hiểu là tên xe, mã tài xế hiểu là tên tài xế, mã tuyến hiểu là tên tuyến
     public void DialogUpdate(int mapc, String maxe, String matuyen, String matx, String bd, String kt){
         Dialog dialog = new Dialog(PhanCongActivity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -149,9 +151,8 @@ public class PhanCongActivity extends AppCompatActivity {
         ArrayAdapter<String> a1 = new ArrayAdapter<String>(this,R.layout.spiner_layout,R.id.txt,getDsTuyen());
         spnTuyen.setAdapter(a1);
 
+        //Lệnh truyền vào Custom Spiner Xe
         spnXe = dialog.findViewById(R.id.spnXe);
-//        ArrayAdapter<String> a2 = new ArrayAdapter<String>(this,R.layout.spiner_layout,R.id.txt,getDSXe());
-//        spnXe.setAdapter(a2);
         mAdapter = new XeItemAdapter(this,getItemDSXe1(getMaXe(maxe)));
         spnXe.setAdapter(mAdapter);
 
@@ -161,7 +162,6 @@ public class PhanCongActivity extends AppCompatActivity {
 
         tvTieuDe.setText("CẬP NHẬT THÔNG TIN");
         spnTuyen.setSelection(getIndex(spnTuyen,matuyen));
-      //  spnXe.setSelection(getIndex(spnXe,maxe));
         spnTaiXe.setSelection(getIndex(spnTaiXe,matx));
         edtBD.setText(bd);
         edtKT.setText(kt);
@@ -175,7 +175,6 @@ public class PhanCongActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 XeItem clickedItem = (XeItem) parent.getItemAtPosition(position);
                 tenxe = clickedItem.getTenXe();
-                // Toast.makeText(PhanCongActivity.this,tenxe,Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -196,7 +195,6 @@ public class PhanCongActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String tenchuyen = spnTuyen.getSelectedItem().toString();
-                //String tenxe = spnXe.getSelectedItem().toString();
                 String tentx = spnTaiXe.getSelectedItem().toString();
 
                 String[] a = tenchuyen.split(" -> ");
@@ -206,25 +204,25 @@ public class PhanCongActivity extends AppCompatActivity {
                 String bd1 = edtBD.getText().toString();
                 String kt1 = edtKT.getText().toString();
 
-                String[] a1 = TachThoiGian(bd);
-                String[] a2 = TachThoiGian(kt);
+                String[] a1 = TachThoiGian(bd1);
+                String[] a2 = TachThoiGian(kt1);
 
-                if(bd.isEmpty()){
+                if(bd1.isEmpty()){
                     edtBD.setError("Không được để trống !");
                     edtBD.requestFocus();
                     return;
                 }
-                else if(kt.isEmpty()){
+                else if(kt1.isEmpty()){
                     edtKT.setError("Không được để trống !");
                     edtKT.requestFocus();
                     return;
                 }
-                else if(!DinhDangTG(bd)){
+                else if(!DinhDangTG(bd1)){
                     edtBD.setError("Không đúng định dạng dd/MM/yyyy !");
                     edtBD.requestFocus();
                     return;
                 }
-                else if(!DinhDangTG(kt)){
+                else if(!DinhDangTG(kt1)){
                     edtKT.setError("Không đúng định dạng dd/MM/yyyy !");
                     edtKT.requestFocus();
                     return;
@@ -241,16 +239,18 @@ public class PhanCongActivity extends AppCompatActivity {
                     Toast.makeText(PhanCongActivity.this,"Thời gian kết thúc không được bé hơn hoặc bằng thời gian bắt đầu !",Toast.LENGTH_SHORT).show();
                     return;
                 }
-//                else if(TaiXeDaLaiXe(getMaTX(tentx),getMaXe(tenxe),bd)){
-//                    //tvTenTaiXe.setError("Đã lên lịch phân công !");
-//                    Toast.makeText(PhanCongActivity.this,"Đã lên lịch phân công !",Toast.LENGTH_LONG).show();
-//                    return;
-//                }
-//                else if(TaiXeLaiKhacXe(getMaTX(tentx),bd)){
-//                    //tvTenTaiXe.setError("Đã lên lịch phân công !");
-//                    Toast.makeText(PhanCongActivity.this,"Đã lên lịch phân công !",Toast.LENGTH_LONG).show();
-//                    return;
-//                }
+                else if(tentx.equalsIgnoreCase(matx) && TaiXeDaLaiXe(getMaTX(tentx),getMaXe(tenxe),bd1)){
+                    Toast.makeText(PhanCongActivity.this,"Đã lên lịch phân công !",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else if(tentx.equalsIgnoreCase(matx) && TaiXeLaiKhacXe(getMaTX(tentx),bd1)){
+                    Toast.makeText(PhanCongActivity.this,"Đã lên lịch phân công !",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else if(tenxe.equalsIgnoreCase(maxe) && XeDaDcLai(getMaXe(tenxe),bd1)){
+                    Toast.makeText(PhanCongActivity.this,"Đã lên lịch phân công !",Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 else{
                     connectDB.QueryData("UPDATE PhanCong SET MaTuyen="+getMaTuyen(diembd,diemkt)+",MaXe="+getMaXe(tenxe)+",MaTaiXe="+getMaTX(tentx)+"," +
                             "NgayBD='"+bd1+"',NgayKT='"+kt1+"' WHERE MaPC='"+mapc+"'");
@@ -325,8 +325,6 @@ public class PhanCongActivity extends AppCompatActivity {
         spnTuyen.setAdapter(a1);
 
         spnXe = dialog.findViewById(R.id.spnXe);
-//        ArrayAdapter<String> a2 = new ArrayAdapter<String>(this,R.layout.spiner_layout,R.id.txt,b1);
-//        spnXe.setAdapter(a2);
         mAdapter = new XeItemAdapter(this,getItemDSXe());
         spnXe.setAdapter(mAdapter);
 
@@ -336,7 +334,6 @@ public class PhanCongActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 XeItem clickedItem = (XeItem) parent.getItemAtPosition(position);
                 tenxe = clickedItem.getTenXe();
-               // Toast.makeText(PhanCongActivity.this,tenxe,Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -373,12 +370,6 @@ public class PhanCongActivity extends AppCompatActivity {
 
                 String[] a1 = TachThoiGian(bd);
                 String[] a2 = TachThoiGian(kt);
-                //Note: bắt thêm nghiệp vụ: Tài xế lái 1 xe
-//                if(bd.compareToIgnoreCase(kt)>=0){
-//                    edtBD.setError("Ngày bắt đầu không được lơn hơn hoặc bằng ngày kết thúc !");
-//                    edtBD.requestFocus();
-//                    return;
-//                }
                 if(bd.isEmpty()){
                     edtBD.setError("Không được để trống !");
                     edtBD.requestFocus();
@@ -397,10 +388,6 @@ public class PhanCongActivity extends AppCompatActivity {
                     edtKT.requestFocus();
                     return;
                 }
-//                else if(KTThoiGian(a1[0],a1[1],a1[2],a2[0],a2[1],a2[2])){
-//                    Toast.makeText(PhanCongActivity.this,"Thời gian kết thúc không được bé hơn thời gian bắt đầu !",Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
                 else if(a2[2].compareToIgnoreCase(a1[2])<0){
                     Toast.makeText(PhanCongActivity.this,"Thời gian kết thúc không được bé hơn thời gian bắt đầu !",Toast.LENGTH_SHORT).show();
                     return;
@@ -414,12 +401,10 @@ public class PhanCongActivity extends AppCompatActivity {
                     return;
                 }
                 else if(TaiXeDaLaiXe(getMaTX(tentx),getMaXe(tenxe),bd)){
-                    //tvTenTaiXe.setError("Đã lên lịch phân công !");
                     Toast.makeText(PhanCongActivity.this,"Đã lên lịch phân công !",Toast.LENGTH_LONG).show();
                     return;
                 }
                 else if(TaiXeLaiKhacXe(getMaTX(tentx),bd)){
-                    //tvTenTaiXe.setError("Đã lên lịch phân công !");
                     Toast.makeText(PhanCongActivity.this,"Đã lên lịch phân công !",Toast.LENGTH_LONG).show();
                     return;
                 }
@@ -457,17 +442,14 @@ public class PhanCongActivity extends AppCompatActivity {
     public boolean KTThoiGian(String ngaybd, String thangbd, String nambd, String ngaykt, String thangkt, String namkt){
         boolean kt = false;
         if(namkt.compareToIgnoreCase(nambd)<0){
-            //Toast.makeText(PhanCongActivity.this,"Thời gian kết thúc không được bé hơn thời gian bắt đầu !",Toast.LENGTH_SHORT).show();
             kt = true;
         }
         else if(namkt.compareToIgnoreCase(nambd)==0){
             if(thangkt.compareToIgnoreCase(thangbd)<0){
-               // Toast.makeText(PhanCongActivity.this,"Thời gian kết thúc không được bé hơn thời gian bắt đầu !",Toast.LENGTH_SHORT).show();
                 kt = true;
             }
             else if(thangkt.compareToIgnoreCase(thangbd)==0){
                 if(ngaykt.compareToIgnoreCase(ngaybd)<0){
-                   // Toast.makeText(PhanCongActivity.this,"Thời gian kết thúc không được bé hơn thời gian bắt đầu !",Toast.LENGTH_SHORT).show();
                     kt = false;
                 }
             }
@@ -586,11 +568,7 @@ public class PhanCongActivity extends AppCompatActivity {
         }
         return dsTaiXe;
     }
-//     connectDB.QueryData("CREATE TABLE IF NOT EXISTS PhanCong(MaPC INTEGER PRIMARY KEY AUTOINCREMENT, " +
-//             "MaTuyen INTEGER, MaXe INTEGER, MaTaiXe INTEGER, NgayBD DATE, NgayKT DATE, " +
-//             "FOREIGN KEY(MaTuyen) REFERENCES TuyenXe(MaTuyen)," +
-//             "FOREIGN KEY(MaXe) REFERENCES Xe(MaXe)," +
-//             "FOREIGN KEY(MaTaiXe) REFERENCES TaiXe(MaTX))");
+
     public boolean TaiXeDaLaiXe(int mataixe, int maxe, String bd){
         boolean ktra = false;
         Cursor d = connectDB.GetData("SELECT * FROM PhanCong WHERE MaTaiXe='"+mataixe+"' AND MaXe='"+maxe+"' AND (NgayBD<='"+bd+"' AND '"+bd+"'<=NgayKT)");

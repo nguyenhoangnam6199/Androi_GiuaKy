@@ -81,7 +81,6 @@ public class ThongKeActivity extends AppCompatActivity {
     }
 
     public void LayDuLieu(){
-        //String sql = "SELECT DISTINCT MaXe, COUNT(MaXe) FROM PhanCong GROUP BY MaXe";
         Cursor data = connectDB.GetData("SELECT DISTINCT MaXe, COUNT(MaXe) FROM PhanCong GROUP BY MaXe");
         while(data.moveToNext()){
             int maxe = data.getInt(0);

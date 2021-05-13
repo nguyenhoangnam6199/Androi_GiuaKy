@@ -176,10 +176,10 @@ public class XeActivity extends AppCompatActivity {
                     edtTenXe.requestFocus();
                     return;
                 }
-                else if(KtraTenXe(tenxe)){
-                    edtTenXe.setError("Tên xe không được trùng !");
-                    edtTenXe.requestFocus();
-                    return;
+                else if(!tenxe.equalsIgnoreCase(ten) && KtraTenXe(tenxe)){
+                        edtTenXe.setError("Tên xe không được trùng !");
+                        edtTenXe.requestFocus();
+                        return;
                 }
                 else if(namsanxuat.isEmpty()){
                     edtNamSanXuat.setError("Năm sản xuất không được trống !");
