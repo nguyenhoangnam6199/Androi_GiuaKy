@@ -309,15 +309,14 @@ public class PhanCongActivity extends AppCompatActivity {
 
         //Khai báo mảng để gắn vô spiner
         ArrayList<String> b = new ArrayList<>();
-        ArrayList<String> b1 = new ArrayList<>();
+       // ArrayList<String> b1 = new ArrayList<>();
         ArrayList<String> b2 = new ArrayList<>();
 
         b.clear();
-        b1.clear();
+        //b1.clear();
         b2.clear();
 
         b = getDsTuyen();
-        b1 = getDSXe();
         b2 = getDSTaiXe();
 
         spnTuyen = dialog.findViewById(R.id.spnChuyen);

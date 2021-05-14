@@ -27,29 +27,24 @@
 
     <EditText
         android:id="@+id/edtNamSanXuat"
-        android:layout_width="match_parent"
+        android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:hint="Năm Sản Xuất"
         android:inputType="number"
         android:textColor="#000"
         android:textSize="20sp" />
-    <LinearLayout
+    <Button
+        android:id="@+id/btnAnhXe"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:text="Chọn Hình"
+        android:layout_height="wrap_content"/>
+    <ImageView
+        android:id="@+id/imgAnhXe"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="2">
-        <ImageView
-            android:id="@+id/imgAnhXe"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"/>
-        <Button
-            android:id="@+id/btnAnhXe"
-            android:layout_width="0dp"
-            android:layout_weight="0.8"
-            android:text="Chọn Hình"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
+        android:layout_height="300dp"/>
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

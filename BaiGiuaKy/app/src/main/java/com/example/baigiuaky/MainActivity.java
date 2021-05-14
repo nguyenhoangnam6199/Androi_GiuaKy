@@ -20,19 +20,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Gán menubar vô giao diện
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Quản Lý Vận Tải");
         actionBar.setDisplayShowHomeEnabled(true);
-
-        //Tạo Database
-       // connectDB = new ConnectDB(this,"QuanLyVanTai.db",null,1);
-
-        //Tạo bảng Tài Xế
-    //    connectDB.QueryData("CREATE TABLE IF NOT EXISTS TaiXe(MaTX INTEGER PRIMARY KEY AUTOINCREMENT, TenTX VARCHAR(200), NgaySinh VARCHAR(50), DiaChi VARCHAR(200))");
-
-
-        //thêm dữ liệu
-     //   connectDB.QueryData("INSERT INTO TaiXe VALUES (null,'Nguyen Van A','01/01/1999','Ha Noi')");
 
         //ánh xạ
         setControl();
